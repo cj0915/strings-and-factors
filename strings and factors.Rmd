@@ -1,0 +1,6 @@
+---
+title: "strings and factors"
+author: "Chenyu Jin"
+date: "2024-10-15"
+output: github_document
+---
