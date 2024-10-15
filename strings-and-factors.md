@@ -1,11 +1,9 @@
----
-title: "strings and factors"
-author: "Chenyu Jin"
-date: "2024-10-15"
-output: github_document
----
+strings and factors
+================
+Chenyu Jin
+2024-10-15
 
-```{r}
+``` r
 library(rvest)
 library(stringr)
 library(p8105.datasets)
@@ -13,18 +11,21 @@ library(p8105.datasets)
 
 ## Strings
 
-```{r}
+``` r
 string_vec = c("my", "name", "is", "chenyu")
 
 str_detect(string_vec, "chenyu")
 ```
 
-```{r}
+    ## [1] FALSE FALSE FALSE  TRUE
+
+``` r
 str_replace(string_vec, "chenyu", "Chenyu")
 ```
 
+    ## [1] "my"     "name"   "is"     "Chenyu"
 
-```{r}
+``` r
 string_vec = c(
   "i think we all rule for participating",
   "i think i have been caught",
@@ -33,10 +34,17 @@ string_vec = c(
   )
 
 str_detect(string_vec, "^i think")
+```
+
+    ## [1]  TRUE  TRUE  TRUE FALSE
+
+``` r
 str_detect(string_vec, "i think$")
 ```
 
-```{r}
+    ## [1] FALSE FALSE FALSE  TRUE
+
+``` r
 string_vec = c(
   "Time for a Pumpkin Spice Latte!",
   "went to the #pumpkinpatch last weekend",
@@ -47,7 +55,9 @@ string_vec = c(
 str_detect(string_vec,"[Pp]umpkin")
 ```
 
-```{r}
+    ## [1]  TRUE  TRUE  TRUE FALSE
+
+``` r
 string_vec = c(
   '7th inning stretch',
   '1st half soon to begin. Texas won the toss.',
@@ -58,7 +68,9 @@ string_vec = c(
 str_detect(string_vec, "^[0-9][a-zA-Z]")
 ```
 
-```{r}
+    ## [1]  TRUE  TRUE FALSE  TRUE
+
+``` r
 string_vec = c(
   'Its 7:11 in the evening',
   'want to go to 7-11?',
@@ -69,9 +81,11 @@ string_vec = c(
 str_detect(string_vec, "7.11")
 ```
 
+    ## [1]  TRUE  TRUE FALSE  TRUE
+
 How things start to get really strange
 
-```{r}
+``` r
 string_vec = c(
   'The CI is [2, 5]',
   ':-]',
@@ -82,3 +96,4 @@ string_vec = c(
 str_detect(string_vec, "\\[")
 ```
 
+    ## [1]  TRUE FALSE  TRUE  TRUE
