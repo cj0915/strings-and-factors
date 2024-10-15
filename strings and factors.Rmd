@@ -8,6 +8,7 @@ output: github_document
 ```{r}
 library(rvest)
 library(stringr)
+library(forcats)
 library(p8105.datasets)
 ```
 
@@ -80,5 +81,20 @@ string_vec = c(
   )
 
 str_detect(string_vec, "\\[")
+```
+
+## Factors
+
+```{r}
+vec_sex = factor(c("male", "male", "female", "female"))
+vec_sex
+```
+
+Do some releveling ...
+
+```{r}
+vec_sex = fct_relevel(vec_sex, "male")
+
+as.numeric(vec_sex)
 ```
 

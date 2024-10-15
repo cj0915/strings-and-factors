@@ -6,6 +6,7 @@ Chenyu Jin
 ``` r
 library(rvest)
 library(stringr)
+library(forcats)
 library(p8105.datasets)
 ```
 
@@ -97,3 +98,23 @@ str_detect(string_vec, "\\[")
 ```
 
     ## [1]  TRUE FALSE  TRUE  TRUE
+
+## Factors
+
+``` r
+vec_sex = factor(c("male", "male", "female", "female"))
+vec_sex
+```
+
+    ## [1] male   male   female female
+    ## Levels: female male
+
+Do some releveling …
+
+``` r
+vec_sex = fct_relevel(vec_sex, "male")
+
+as.numeric(vec_sex)
+```
+
+    ## [1] 1 1 2 2
